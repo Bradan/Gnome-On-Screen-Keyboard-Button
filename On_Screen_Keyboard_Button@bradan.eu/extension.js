@@ -26,13 +26,13 @@ function init() {
     oskA11yApplicationsSettings = new Gio.Settings({ schema_id: A11Y_APPLICATIONS_SCHEMA });
 
     oskButton = new St.Bin({ style_class: 'panel-button',
-                          reactive: true,
-                          can_focus: true,
-                          x_fill: true,
-                          y_fill: false,
-                          track_hover: true });
+                            reactive: true,
+                            can_focus: true,
+                            x_fill: true,
+                            y_fill: false,
+                            track_hover: true });
     let icon = new St.Icon({ icon_name: 'format-text-bold-symbolic',
-                             style_class: 'system-status-icon' });
+                            style_class: 'system-status-icon' });
 
     oskButton.set_child(icon);
     oskButton.connect('button-press-event', _toggleKeyboard);
