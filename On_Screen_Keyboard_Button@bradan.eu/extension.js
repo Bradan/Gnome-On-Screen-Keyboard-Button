@@ -48,4 +48,5 @@ function disable() {
 
     _oskButton.disconnect(_oskButtonEventHandler);
     delete _oskButton;
+    _oskButton = null;
 }
