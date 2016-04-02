@@ -24,10 +24,11 @@ function _toggleKeyboard() {
 }
 
 function init() {
-    _oskA11yApplicationsSettings = new Gio.Settings({ schema_id: A11Y_APPLICATIONS_SCHEMA });
 }
 
 function enable() {
+    _oskA11yApplicationsSettings = new Gio.Settings({ schema_id: A11Y_APPLICATIONS_SCHEMA });
+
     _oskButton = new St.Bin({ style_class: 'panel-button',
                             reactive: true,
                             can_focus: true,
@@ -49,4 +50,6 @@ function disable() {
     _oskButton.disconnect(_oskButtonEventHandler);
     _oskButton = null;
     _oskButtonEventHandler = null;
+
+    _oskA11yApplicationsSettings = null;
 }
