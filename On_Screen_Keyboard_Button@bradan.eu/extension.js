@@ -47,6 +47,6 @@ function disable() {
     Main.panel._rightBox.remove_child(_oskButton);
 
     _oskButton.disconnect(_oskButtonEventHandler);
-    delete _oskButton;
     _oskButton = null;
+    _oskButtonEventHandler = null;
 }
