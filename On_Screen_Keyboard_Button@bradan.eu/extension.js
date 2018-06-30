@@ -14,12 +14,22 @@ let _oskA11yApplicationsSettings;
 
 function _toggleKeyboard() {
     if(Main.keyboard._keyboardVisible) {
-        Main.keyboard.Hide();
+        if(typeof Main.keyboard.Hide === 'function') {
+            Main.keyboard.Hide();
+        } else {
+            Main.keyboard.hide(); // new version since 3.28?
+        }
     } else {
-        // currently this needs two clicks. I would have to delay the execution otherwise:
-        _oskA11yApplicationsSettings.set_boolean(SHOW_KEYBOARD, true);
-        Main.keyboard._sync();
-        Main.keyboard.Show();
+        if(!_oskA11yApplicationsSettings.get_boolean(SHOW_KEYBOARD)) {
+            // currently this needs two clicks. I would have to delay the execution otherwise:
+            _oskA11yApplicationsSettings.set_boolean(SHOW_KEYBOARD, true);
+            Main.keyboard._sync();
+        }
+        if(typeof Main.keyboard.Show === 'function') {
+            Main.keyboard.Show();
+        } else {
+            Main.keyboard.show(0); // new version since 3.28?
+        }
     }
 }
 
