@@ -48,8 +48,6 @@ function enable() {
     _oskButton = new St.Bin({ style_class: 'panel-button',
                             reactive: true,
                             can_focus: true,
-                            x_fill: true,
-                            y_fill: false,
                             track_hover: true });
     let icon = new St.Icon({ icon_name: 'format-text-bold-symbolic',
                             style_class: 'system-status-icon' });
